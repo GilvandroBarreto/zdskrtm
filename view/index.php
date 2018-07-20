@@ -39,14 +39,17 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_URL,$url);
 // Execute
 $result=curl_exec($ch);
+
+     
 // Closing
 curl_close($ch);
 
-     $result = file_get_contents($url, "gilvandro.junior@rotamed.com.br", "gilvandro18");
+//$result = file_get_contents($url, "gilvandro.junior@rotamed.com.br", "gilvandro18");
 // Will dump a beauty json :3
-var_dump(json_decode($result, true));
+var_dump(json_decode($result["threads"][13/* thread id */]["title"/* thread key */], true));
+
 // Will dump a beauty json :3
-var_dump(json_decode($result, true));
+//var_dump(json_decode($result, true));
       ?>
    </font> 
    </td> 
