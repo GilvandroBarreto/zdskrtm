@@ -24,7 +24,7 @@
      // Get all tickets
  // $tickets = $client->tickets()->findAll(['per_page' => 1, 'page' => 1, ]);
    //var_dump($tickets);
-     $url = "https://rotamed.zendesk.com/api/v2/search.json?query=type%3Aticket+status%3Aopen";
+     $url = "https://gilvandro.junior@rotamed.com.br:gilvandro18@rotamed.zendesk.com/api/v2/search.json?query=type%3Aticket+status%3Aopen";
      $username = "gilvandro.junior@rotamed.com.br";
      $password = "gilvandro18";
      //  Initiate curl
@@ -38,15 +38,15 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 // Set the url
 curl_setopt($ch, CURLOPT_URL,$url);
 // Execute
-$result=curl_exec($ch);
-// Closing
-curl_close($ch);
+ $result = file_get_contents($url);
+   //var_dump (json_decode($result, true));
+//Print Result
+ $obj = (json_decode($result, true));
+     echo "$obj[5] <br>"; 
 
-     $result = file_get_contents($url, "gilvandro.junior@rotamed.com.br", "gilvandro18");
-// Will dump a beauty json :3
-var_dump(json_decode($result, true));
-// Will dump a beauty json :3
-var_dump(json_decode($result, true));
+ // Closing
+ curl_close($ch);
+
       ?>
    </font> 
    </td> 
