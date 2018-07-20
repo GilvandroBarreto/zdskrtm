@@ -38,11 +38,39 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 // Set the url
 curl_setopt($ch, CURLOPT_URL,$url);
 // Execute
- $result = file_get_contents($url);
-   //var_dump (json_decode($result, true));
+ $result = file_get_contents($url); 
 //Print Result
- $obj = (json_decode($result, true));
-     echo "$obj[5] <br>"; 
+ $obj = json_decode($result);
+ $x = ($obj->results[0]);
+    
+     //URL DO JSON
+     echo '<h3>URL</h3>';
+     echo '<pre>';
+ $posicao = (explode('"',$x->url));
+     print_r($posicao[0]);
+     echo '</pre>';
+    
+     echo '<h3>ID</h3>';
+      echo '<pre>';
+     //ID DO TICKET
+      $posicao1 = (explode('"',$x->id));
+     print_r($posicao1[0]);
+     echo '</pre>';
+     
+     //SUBJECT
+     echo '<h3>SUBJECT</h3>';
+    echo '<pre>';
+    $posicao2 = (explode('"',$x->subject));
+     print_r($posicao2[0]);
+     echo '</pre>';
+     
+     //DESCRIÇÃO DO TICKET
+     echo '<h3>DESCRIPTION</h3>';
+     echo '<pre>';
+   $posicao3 = (explode('"',$x->description));
+     print_r($posicao3[0]);
+     echo '</pre>';
+
 
  // Closing
  curl_close($ch);
