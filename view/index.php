@@ -28,52 +28,69 @@
      $username = "gilvandro.junior@rotamed.com.br";
      $password = "gilvandro18";
      //  Initiate curl
-$ch = curl_init();
-// Disable SSL verification
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-// autenticação
-curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
-// Will return the response, if false it print the response
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// Set the url
-curl_setopt($ch, CURLOPT_URL,$url);
-// Execute
- $result = file_get_contents($url); 
-//Print Result
- $obj = json_decode($result);
- $x = ($obj->results[0]);
     
-     //URL DO JSON
-     echo '<h3>URL</h3>';
-     echo '<pre>';
- $posicao = (explode('"',$x->url));
-     print_r($posicao[0]);
-     echo '</pre>';
-    
-     echo '<h3>ID</h3>';
-      echo '<pre>';
-     //ID DO TICKET
-      $posicao1 = (explode('"',$x->id));
-     print_r($posicao1[0]);
-     echo '</pre>';
-     
-     //SUBJECT
-     echo '<h3>SUBJECT</h3>';
-    echo '<pre>';
-    $posicao2 = (explode('"',$x->subject));
-     print_r($posicao2[0]);
-     echo '</pre>';
-     
-     //DESCRIÇÃO DO TICKET
-     echo '<h3>DESCRIPTION</h3>';
-     echo '<pre>';
-   $posicao3 = (explode('"',$x->description));
-     print_r($posicao3[0]);
-     echo '</pre>';
+      
+        $ch = curl_init();
+        // Disable SSL verification
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        // autenticação
+        curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
+        // Will return the response, if false it print the response
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        // Set the url
+        curl_setopt($ch, CURLOPT_URL,$url);
+        // Execute
+         $result = file_get_contents($url); 
+        //Print Result
+         $obj = json_decode($result);
+     $cont = 0;
+         foreach ($obj->results[$cont] as $x){
+           $x = $obj->results[$cont];
+             
+           // ID DO TICKET
+              echo '<h3>ID</h3>';
+              echo '<pre>';
+             //ID DO TICKET
+              $posicao1 = (explode('"',$x->id));
+             print_r($posicao1[0]);
+             echo '</pre>';
+           
+           
+           //URL DO JSON
+             echo '<h3>URL</h3>';
+             echo '<pre>';
+         $posicao0 = (explode('"',$x->url));
+             print_r($posicao0[0]);
+             echo '</pre>';
+
+             //SUBJECT
+             echo '<h3>SUBJECT</h3>';
+            echo '<pre>';
+            $posicao2 = (explode('"',$x->subject));
+             print_r($posicao2[0]);
+             echo '</pre>';
+
+             //DESCRIÇÃO DO TICKET
+             echo '<h3>DESCRIPTION</h3>';
+             echo '<pre>';
+           $posicao3 = (explode('"',$x->description));
+             print_r($posicao3[0]);
+             echo '</pre>';
+
+                 //Status do Ticket
+             echo '<h3>Prioridade</h3>';
+             echo '<pre>';
+           $posicao5 = (explode('"',$x->priority));
+             print_r($posicao5[0]);
+             echo '</pre>'; 
+           $cont = $cont +1;
+           
+         }
 
 
- // Closing
- curl_close($ch);
+         // Closing
+         curl_close($ch);
+
 
       ?>
    </font> 
