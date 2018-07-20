@@ -70,8 +70,7 @@ curl_setopt($ch, CURLOPT_URL,$url);
    $posicao3 = (explode('"',$x->description));
      print_r($posicao3[0]);
      echo '</pre>';
-     
-   
+
 
  // Closing
  curl_close($ch);
