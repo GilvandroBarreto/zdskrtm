@@ -3,7 +3,7 @@
   <head>
     
     <meta charset="utf-8">
-    <title>ROTAMED</title>
+    <title>ROTAMED CONTROL</title>
   </head>
   <body>
     <h2>
@@ -83,6 +83,8 @@
            $posicao5 = (explode('"',$x->priority));
              print_r($posicao5[0]);
              echo '</pre>'; 
+              echo '<hr />';
+           
            $cont = $cont +1;
            
          }
