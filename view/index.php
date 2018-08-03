@@ -10,9 +10,11 @@
 
 <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
 
+    <link href="../css/bootstrap.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/font-style.css" rel="stylesheet">
     <link href="../css/flexslider.css" rel="stylesheet">
+    <link href="../css/table.css" rel="stylesheet">
 
     <script type="text/javascript" src="../js/jquery.js"></script>    
     <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
@@ -55,10 +57,20 @@
 	</script>
 
   </head>
-  <body>
-    <h2>
-        ROTAMED
-    </h2>
+  <body style="background:#1f1f1f;">
+    <div class="navbar-nav navbar-inverse navbar-fixed-top">
+        <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html"><img src="http://rotamed.com.br/wp-content/uploads/2015/08/logo1.png" alt="">   Zendesk Dashboard</a>
+          <!--<a class="navbar-brand" href="index.html"><img src="images/logo30.png" alt=""> Zendesk Dashboard</a>-->
+        </div> 
+        </div>
+    </div>
     <!--<table width="280" cellspacing="1" cellpadding="3" border="0" bgcolor="black"> 
 <tr> 
    <td><font color="white" face="arial, verdana, helvetica"> 
@@ -94,40 +106,48 @@
          //Print Result
          $obj = json_decode($result);
          $cont = 0;
-     
+      
+    echo'<div class="container">';
+    echo'<div class="row">';
+    
      
          foreach ($obj->results[$cont] as $x){
            $x = $obj->results[$cont];
-    echo '<div class="dash-unit">';
-		echo '<table>';
-        echo '<thead>';
-         echo '<tr>';
-           echo  '<th>ID</th>';
-            echo '<th>URL</th>';
-            echo '<th>Título</th>';
-            echo '<th>Descrição</th>';
-            echo '<th>Prioridade</th>';
-          echo '</tr>';
-        echo '</thead>';
-        echo '<tbody>';
-          echo '<tr>';
-          $posicao1 = (explode('"',$x->id));
-            echo '<td>';
-            print_r($posicao1[0]);
-           echo '</td>';
-			  echo '<td>Internet Explorer 4.0</td>';
-            echo '<td>Win 95+</td>';
-            echo '<td class="center"> 4</td>';
-            echo '<td class="center">X</td>';
-          echo '</tr>';
-       echo '</tbody>';
-     echo '</table>';
+         echo'<div class="col-sm-3 col-lg-3">';
+         echo '<div class="dash-unit">';
            
-     
+           echo  '<dtitle>ID</dtitle>';
+            $posicao1 = (explode('"',$x->id));
+           echo  '<dtitle>';
+             print_r($posicao1[0]);
+           echo'</dtitle></br>';
            
+           echo '<h3>Título</h3></br>';
+            $posicao1 = (explode('"',$x->subject));
+           echo  '<dtitle>';
+             print_r($posicao1[0]);
+           echo'</dtitle></br>';
+           
+           echo '<h3>Prioridade</h3></br>';
+            $posicao1 = (explode('"',$x->priority));
+           echo  '<dtitle>';
+             print_r($posicao1[0]);
+           echo'</dtitle></br>';
+           
+           echo '<h3>Descrição</h3></br>';
+            $posicao1 = (explode('"',$x->description));
+           echo  '<dtitle>';
+             print_r($posicao1[0]);
+           echo'</dtitle></br>';
+           
+           echo '</div>';
+           echo '</div>';
+                                         
            $cont = $cont +1;
            
          }
+    echo '</div>';
+    echo '</div>';
          // Closing
          curl_close($ch);
 

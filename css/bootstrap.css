@@ -4182,7 +4182,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
+  padding: 9px 15px;
   font-size: 18px;
   line-height: 20px;
 }
@@ -4495,7 +4495,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  color: #606060;
 }
 
 .navbar-inverse .navbar-brand:hover,
