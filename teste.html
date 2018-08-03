@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset='utf8' />
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+
+    <!-- DATA TABLE CSS -->
+    <link href="css/table.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery.js"></script>    
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="js/admin.js"></script>
+
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        
+  	<!-- Google Fonts call. Font Used Open Sans -->
+  	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+  	<!-- DataTables Initialization -->
+    <script type="text/javascript" src="js/datatables/jquery.dataTables.js"></script>
+  			<script type="text/javascript" charset="utf-8">
+  			    $(document).ready(function () {
+  			        $('#dt1').dataTable();
+  			    });
+	</script>
+
+    
+	
+	</head>
+
+	<body>
+		<!--SECOND Table -->
+		<h4><strong>Data Table</strong></h4>
+
+		<table class="display" id="dt1">
+        <thead>
+          <tr>
+            <th>Rendering engine</th>
+            <th>Browser</th>
+            <th>Platform(s)</th>
+            <th>Engine version</th>
+            <th>CSS grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="odd gradeX">
+            <td>Trident</td>
+            <td>Internet Explorer 4.0</td>
+            <td>Win 95+</td>
+            <td class="center"> 4</td>
+            <td class="center">X</td>
+          </tr>
+          <tr class="even gradeC">
+            <td>Trident</td>
+            <td>Internet Explorer 5.0</td>
+            <td>Win 95+</td>
+            <td class="center">5</td>
+            <td class="center">C</td>
+          </tr>
+        </tbody>
+      </table>
+	  <!--/END SECOND TABLE -->
+	</body>  
+</html>
