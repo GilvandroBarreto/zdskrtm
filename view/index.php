@@ -55,9 +55,27 @@
   			        $('#dt1').dataTable();
   			    });
 	</script>
+    <script type="text/javascript">
+   
+      i = 1;
+      tempo = 50;
+      tamanho = 500; // tamanho da barra de rolagem  >> Ver arquivo Leiame.txt
+ 
+      function Rolar() {
+        document.getElementById('container').scrollTop = i;
+        i++;
+        t = setTimeout("Rolar()", tempo);
+        if (i == tamanho) {
+          i = 0;
+        }
+      }
+      function Parar() {
+        clearTimeout(t);
+      }
+    </script>
 
   </head>
-  <body style="background:#1f1f1f;">
+  <body style="background:#1f1f1f" onload="Rolar()">
     <div class="navbar-nav navbar-inverse navbar-fixed-top">
         <div class="container">
         <div class="navbar-header">
@@ -71,15 +89,7 @@
         </div> 
         </div>
     </div>
-    <!--<table width="280" cellspacing="1" cellpadding="3" border="0" bgcolor="black"> 
-<tr> 
-   <td><font color="white" face="arial, verdana, helvetica"> 
-<b>Tickets</b> 
-   </font></td> 
-</tr> 
-<tr> 
-   <td bgcolor="white"> 
-   <font face="arial, verdana, helvetica"> -->
+    
   <?php
    require '../controller/controller.php';
 
@@ -121,6 +131,7 @@
            echo  '<dtitle>';
              print_r($posicao1[0]);
            echo'</dtitle></br>';
+           echo'<hr></hr>';
            
            echo '<h3>Título</h3></br>';
             $posicao1 = (explode('"',$x->subject));
@@ -153,9 +164,5 @@
 
 
       ?>
-   </font> 
-   </td> 
-</tr> 
-</table> 
   </body>
 </html>
